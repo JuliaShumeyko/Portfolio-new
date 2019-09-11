@@ -1,8 +1,47 @@
-// const shumeyko = document.querySelectorAll("#shumeyko path");
 
-// for (let i = 0; i < shumeyko.length; i++) {
-//     console.log(`Letter ${i} is ${shumeyko[i].getTotalLength()}`);
-// }
+let menuOpen = false;
+
+document.querySelector("#nav-toggle").addEventListener("click", function() {
+    if ((menuOpen === false)) {
+        this.classList.toggle("active");
+        TweenMax.to(".mobile-nav", 1, {
+            x: 0,
+            ease: Power2.easeOut
+        });
+        TweenMax.staggerFrom(".mobile-nav__item", 0.2, {
+            scale: 0,
+            ease: Power2.easeOut,
+            delay: 0.7
+        }, 0.1);
+    menuOpen = true;
+    } else {
+        this.classList.toggle("active");
+        TweenMax.to(".mobile-nav", 1, {
+            x: 1000,
+            ease: Power2.easeOut
+        });
+    menuOpen = false;
+    }
+});
+
+document.querySelectorAll(".mobile-nav__item").forEach(function(item) {item.addEventListener("click", function() {
+    document.querySelector("#nav-toggle").classList.toggle("active");
+    menuOpen = false;
+    TweenMax.to(".mobile-nav", 1, {
+        x: 2000,
+        ease: Power2.easeOut
+    });
+    });
+});
+
+
+
+var rect = document.querySelector(".header__h2").getBoundingClientRect();
+console.log(rect.top, rect.right, rect.bottom, rect.left);
+
+document.querySelector("#shark").style.top = rect.top - 120+ "px";
+
+
 
 TweenMax.from(".background", 0.7, {
     x: -1200,
@@ -11,8 +50,14 @@ TweenMax.from(".background", 0.7, {
 });
 
 TweenMax.from(".header__h2", 0.5, {
-    x: -1100,
+    x: -1500,
     ease: Power2.easeOut,
+    delay: 5.5
+});
+
+TweenMax.from("#shark", 1, {
+    y: -1000,
+    ease: Bounce.easeOut,
     delay: 6.5
 });
 
@@ -24,7 +69,7 @@ TweenMax.staggerFrom(".nav__item", 0.2, {
 
 
 let yellowText = TweenMax.staggerFrom(".about__special-text", 0.5, {
-    color: "#3d3d3d",
+    color: "#fff",
     ease: Power4.easeOut,
     delay: -0.7
 }, 0.5);
@@ -83,4 +128,9 @@ let skillsScene = new ScrollMagic.Scene({
 let projectsScene = new ScrollMagic.Scene({
     triggerElement: ".projects"})
     .setTween(projectsTimeline)
+    .addTo(controller);
+
+let contactScene = new ScrollMagic.Scene({
+    triggerElement: ".contact"})
+    .setTween(contactTimeline)
     .addTo(controller);
