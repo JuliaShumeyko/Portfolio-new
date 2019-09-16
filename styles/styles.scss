@@ -46,6 +46,7 @@ $grey: #3d3d3d;
 body {
     scroll-snap-type: y proximity;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 
     @include for-phone {
 
@@ -66,6 +67,7 @@ body {
     z-index: 11000;
     text-align: center;
     transform: translateX(2000px);
+    display: none;
 
     li {
         list-style: none;
@@ -786,8 +788,8 @@ text-transform: uppercase;
 }
 
 #julia path:nth-child(4){
-    stroke-dasharray: 337.14px;
-    stroke-dashoffset: 337.14px;
+    stroke-dasharray: 339px;
+    stroke-dashoffset: 339px;
     animation: line-anim 2s ease forwards 2.4s;
 }
 

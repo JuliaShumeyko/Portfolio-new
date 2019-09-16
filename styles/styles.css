@@ -14,6 +14,7 @@ body {
   -ms-scroll-snap-type: y proximity;
       scroll-snap-type: y proximity;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (max-width: 600px) {
@@ -36,6 +37,7 @@ body {
   text-align: center;
   -webkit-transform: translateX(2000px);
           transform: translateX(2000px);
+  display: none;
 }
 
 .mobile-nav li {
@@ -831,8 +833,8 @@ body {
 }
 
 #julia path:nth-child(4) {
-  stroke-dasharray: 337.14px;
-  stroke-dashoffset: 337.14px;
+  stroke-dasharray: 339px;
+  stroke-dashoffset: 339px;
   -webkit-animation: line-anim 2s ease forwards 2.4s;
           animation: line-anim 2s ease forwards 2.4s;
 }

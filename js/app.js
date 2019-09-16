@@ -4,6 +4,7 @@ let menuOpen = false;
 document.querySelector("#nav-toggle").addEventListener("click", function() {
     if ((menuOpen === false)) {
         this.classList.toggle("active");
+        document.querySelector(".mobile-nav").style.display = "block";
         TweenMax.to(".mobile-nav", 1, {
             x: 0,
             ease: Power2.easeOut
@@ -16,10 +17,12 @@ document.querySelector("#nav-toggle").addEventListener("click", function() {
     menuOpen = true;
     } else {
         this.classList.toggle("active");
+        // document.querySelector(".mobile-nav").style.display = "none";
         TweenMax.to(".mobile-nav", 1, {
             x: 1000,
             ease: Power2.easeOut
         });
+        setTimeout(function(){ document.querySelector(".mobile-nav").style.display = "none" }, 1000);
     menuOpen = false;
     }
 });
@@ -35,11 +38,10 @@ document.querySelectorAll(".mobile-nav__item").forEach(function(item) {item.addE
 });
 
 
+setTimeout(function(){ let rect = document.querySelector(".header__h2").getBoundingClientRect();
+document.querySelector("#shark").style.top = rect.top - 120+ "px"; }, 6000);
 
-var rect = document.querySelector(".header__h2").getBoundingClientRect();
-console.log(rect.top, rect.right, rect.bottom, rect.left);
 
-document.querySelector("#shark").style.top = rect.top - 120+ "px";
 
 
 
